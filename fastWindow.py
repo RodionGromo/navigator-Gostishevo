@@ -24,12 +24,10 @@ class fastWindow:
 	def getCenter(self,windowsize):
 		windowX,windowY = windowsize
 		size = f"{windowX}x{windowY}+{abs(int((self.screenX/2) - (windowX/2)))}+{abs(int((self.screenY/2) - (windowY/2)))}"
-		print(size)
 		return size
 
 	def readImage(self):
 		if(self.imagePath != None):
-			print("Reading image...")
 			self.image = Image.open(self.imagePath)
 			self.resize_image()
 
@@ -43,7 +41,6 @@ class fastWindow:
 		self.created = True
 		self.readImage()
 		self.window = Tk()
-		self.window.wm_attributes("-transparent","purple")
 		self.window.title(self.windowTitle)
 		if(self.image != None):
 			self.imageData = ImageTk.PhotoImage(self.image)
@@ -55,7 +52,7 @@ class fastWindow:
 	def start_window(self):
 		self.window.mainloop()
 
-	def passCallback():
+	def passCallback(self):
 		pass
 
 	def destroySelf(self):
